@@ -1,0 +1,15 @@
+
+//
+// Invoice wrapper
+//
+
+.invoice-wrapper {
+	min-height: 100vh;
+	.invoice-box {
+		width: 90%;
+
+		@media (min-width: map-get($grid-breakpoints, md)) {
+			width: 800px;	
+		}
+	}
+}

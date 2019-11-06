@@ -1,0 +1,10 @@
+
+//
+// Text color
+//
+
+@each $key, $color in $main-colors {
+	.text-color-#{$key} {
+		color: $color !important;
+	}
+}

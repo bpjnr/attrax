@@ -1,0 +1,116 @@
+
+//
+// Colors
+//
+
+$colors: (
+    1: #e6e6e6, 2: #f9f9f9, 3: #566971, 4: #34454d, 5: #97a3c5, 6: #34454d
+);
+
+
+
+//
+// File list
+//
+
+.file-list {
+	margin: 0px -10px;
+	> .file {
+		background: $white;
+		margin: 0px 10px 20px 10px;
+		border: 1px solid map-get($colors, 1);
+		&:hover {
+			cursor: pointer;
+			background: map-get($colors, 2);
+		}
+		.file-name {
+			overflow: hidden;
+		    white-space: nowrap;
+		    text-overflow: ellipsis;
+		    color: map-get($colors, 6);
+		}
+		.empty-directory {
+			position: relative;
+			&:before {
+				content: '';
+			    top: 8px;
+			    left: 2px;
+			    width: 40px;
+			    height: 55px;
+			    background: map-get($colors, 3);
+			    position: absolute;
+			    border-radius: .3em;
+			    box-shadow: 25px 5px 0 0 map-get($colors, 3);
+			}
+			&:after {
+				content: '';
+			    top: 17px;
+			    left: 0px;
+			    width: 70px;
+			    height: 53px;
+			    background: map-get($colors, 4);
+			    position: absolute;
+			    border-radius: .3em;
+			}
+		}
+		.document {
+			color: #fff;
+			display: flex;
+			font-weight: 400;
+			position: relative;
+			align-items: center;
+			.file-type {
+				position: relative;
+				padding-left: 20px;
+			}
+			&:before {
+				content: '';
+			    top: 5px;
+			    left: 4px;
+			    width: 62px;
+			    height: 70px;
+			    position: absolute;
+			    border-radius: .4em;
+			    box-shadow: 48px -53px 0 0 map-get($colors, 4) inset;
+			}
+			&:after {
+				content: '';
+			    top: 4px;
+			    left: 50px;
+			    width: 0px;
+			    height: 0px;
+			    position: absolute;
+			    border-radius: .4em;
+			    border: 9px solid map-get($colors, 3);
+			    border-bottom-width: 10px;
+			    border-top-color: transparent;
+			    border-right-color: transparent;
+			}
+		}
+		.directory {
+			position: relative;
+			&:before {
+				content: '';
+			    top: 8px;
+			    left: 2px;
+			    width: 40px;
+			    height: 55px;
+			    background: map-get($colors, 3);
+			    position: absolute;
+			    border-radius: .3em;
+			    box-shadow: 25px 5px 0 0 map-get($colors, 3);
+			}
+			&:after {
+				content: '';
+			    top: 20px;
+			    left: 0px;
+			    width: 70px;
+			    height: 50px;
+			    background: map-get($colors, 4);
+			    position: absolute;
+			    border-radius: .3em;
+			    box-shadow: 0 -3px 0 0 map-get($colors, 5);
+			}
+		}
+	}
+}

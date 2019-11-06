@@ -1,0 +1,23 @@
+
+//
+// Colors
+//
+
+$colors: (
+    1: #34454d
+);
+
+
+
+//
+// Dashboard notification
+//
+
+.dashboard-notification {
+	.title {
+		color: map-get($colors, 1);
+	}
+	.notification-link {
+		background-color: map-get($colors, 1);
+	}
+}

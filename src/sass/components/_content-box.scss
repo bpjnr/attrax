@@ -1,0 +1,25 @@
+
+//
+// Colors
+//
+
+$colors: (
+    1: #34454d, 2: rgba(230, 230, 230, 0.7)
+);
+
+
+
+//
+// Content box
+//
+
+.content-box {
+	background: $white;
+	border-radius: 0.2rem;
+	border: 1px solid map-get($colors, 2);
+	.box-title {
+		color: map-get($colors, 1);
+		font-weight: $font-weight-normal;
+		font-size: map-get($text-sizes, 15);
+	}
+}

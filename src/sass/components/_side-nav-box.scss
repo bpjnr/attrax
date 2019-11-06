@@ -1,0 +1,502 @@
+
+//
+// Colors
+//
+
+// Default
+$colors: (
+    1: #2c50ef, 2: #3257fb, 3: $white, 4: #2c50ef, 5: #1737c1
+);
+
+
+//
+// Side nav box
+//
+
+.side-nav-box {
+    width: 65px;
+    min-height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 4;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    background: linear-gradient(map-get($colors, 1), map-get($colors, 5));
+
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+        width: 250px;
+        left: -500px;
+        &.active {
+            left: 0px;
+        }
+    }
+
+
+    //
+    // Logo box
+    //
+
+    .logo-box {
+        width: 100%;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+
+        @media (max-width: map-get($grid-breakpoints, lg)) {
+            padding: 0px 20px;
+            justify-content: flex-start;
+        }
+
+        > .logo {
+            height: 30px;
+        }
+        > .title {
+            display: none;
+
+            @media (max-width: map-get($grid-breakpoints, lg)) {
+                display: block;
+                margin-left: 12px;
+                font-weight: normal;
+                font-size: map-get($text-sizes, 16);
+            }
+        }
+    }
+
+
+
+    //
+    // Side nav
+    //
+
+    .side-nav {
+        flex: 1;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 20px;
+        &.sub-menu-active > .title {
+            max-width: 40px;
+        }
+
+        @media (max-width: map-get($grid-breakpoints, lg)) {
+            position: relative;
+        }
+
+        > .title {
+            max-width: 80%;
+            margin: 0px auto;
+            text-align: center;
+            padding-bottom: 10px;
+            font-weight: normal;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: map-get($colors, 3);
+
+            @media (max-width: map-get($grid-breakpoints, lg)) {
+                margin: 0px;
+                max-width: 100%;
+                text-align: left;
+                padding-left: 15px;
+            }
+        }
+        > .main-menu {
+            margin-bottom: 25px;
+            > ul {
+                padding-left: 0px;
+                margin-bottom: 0px;
+                > li {
+                    padding: 8px 0px;
+                    text-align: center;
+                    &.active {
+                        background: map-get($colors, 2);
+                    }
+                    > .menu-item {
+                        color: $white;
+                        display: block;
+                        text-decoration: none;
+                        > .icon {
+                            position: relative;
+                            font-size: map-get($text-sizes, 16);
+                            &:before {
+                                z-index: 2;
+                                position: relative;
+                            }
+                            &:after {
+                                content: "";
+                                width: 35px;
+                                height: 35px;
+                                top: -7px;
+                                left: -10px;
+                                position: absolute;
+                                background: #2344da;
+                                border-radius: 0.2em;
+                                transition: all 0.3s ease;
+
+                                @media (max-width: map-get($grid-breakpoints, lg)) {
+                                    display: none;
+                                }
+                            }
+                        }
+                        > .title {
+                            display: none;
+                        }
+                    }
+                    > .sub-menu {
+                        left: -500px;
+                        display: none;
+                        ul > li {
+                            display: none;
+                            > ul > li {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    @media (max-width: map-get($grid-breakpoints, lg)) {
+                        text-align: left;
+                        position: relative;
+                        padding-left: 15px;
+                        &.active > .sub-menu {
+                            left: 49px;
+                        }
+                        &.active,
+                        &.first-position {
+                            position: initial;
+
+
+
+                            //
+                            // Side nav states (Level 2)
+                            //
+
+                            > .sub-menu {
+                                top: 0px;
+                                z-index: 2;
+                                height: 100%;
+                                position: absolute;
+                                background: map-get($colors, 2);
+                                &:after {
+                                    display: none;
+                                }
+                                ul {
+                                    padding-left: 0px;
+                                    > li {
+                                        display: block;
+                                        list-style: none;
+                                        position: relative;
+                                        transition: all 0.3s ease;
+                                        > a {
+                                            width: 201px;
+                                            display: block;
+                                            font-weight: normal;
+                                            padding: 10px 15px;
+                                            color: map-get($colors, 3);
+                                            text-decoration: none;
+                                            transition: all 0.3s ease;
+                                            > .icon {
+                                                margin-right: 5px;
+                                            }
+                                        }
+                                        &:hover {
+                                            > a {
+                                                color: $white;
+                                            }
+                                        }
+                                        > ul {
+                                            &:after {
+                                                content: "\F142";
+                                                top: 12px;
+                                                right: 12px;
+                                                position: absolute;
+                                                color: map-get($colors, 3);
+                                                transition: all 0.3s ease;
+                                                font: normal normal normal 18px/1 "Material Design Icons";
+                                            }
+                                            > li {
+                                                display: none;
+                                            }
+                                        }
+
+
+
+                                        //
+                                        // Side nav states (Level 3)
+                                        //
+
+                                        &.active {
+                                            background: map-get($colors, 4);
+                                            > a {
+                                                color: $white;
+                                            }
+                                            > ul {
+                                                background: map-get($colors, 1);
+                                                &:after {
+                                                    color: $white;
+                                                    transform: rotate(90deg);
+                                                }
+                                                > li {
+                                                    display: block;
+                                                    list-style: none;
+                                                    > a {
+                                                        display: block;
+                                                        font-weight: normal;
+                                                        padding: 10px 15px;
+                                                        color: map-get($colors, 3);
+                                                        text-decoration: none;
+                                                        transition: all 0.3s ease;
+                                                        > .icon {
+                                                            color: $white;
+                                                            margin-right: 5px;
+                                                        }
+                                                    }
+                                                    &:hover {
+                                                        > a {
+                                                            color: $white;
+                                                        }
+                                                    }
+                                                    &.active > a {
+                                                        color: $white;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        > .sub-menu {
+                            display: block;
+                            &:after {
+                                content: "\F142";
+                                top: 11px;
+                                right: 20px;
+                                position: absolute;
+                                color: map-get($colors, 3);
+                                font: normal normal normal 18px/1 "Material Design Icons";
+                            }
+                        }
+                        > .menu-item {
+                            position: relative;
+                            > .title {
+                                top: 0px;
+                                left: 33px;
+                                display: block;
+                                max-width: 80%;
+                                overflow: hidden;
+                                position: absolute;
+                                font-weight: normal;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                margin: 3px auto 0px auto;
+                                color: map-get($colors, 3);
+                            }
+                            &:hover {
+                                > .title {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    //
+    // States
+    //
+
+    &:hover {
+        width: 250px;
+
+
+
+        //
+        // Logo box states
+        //
+
+        .logo-box {
+            padding: 0px 20px;
+            transition: all 0.3s ease;
+            justify-content: flex-start;
+            > .title {
+                display: block;
+                margin-left: 12px;
+                font-weight: normal;
+                font-size: map-get($text-sizes, 16);
+            }
+        }
+
+
+
+        //
+        // Side nav states
+        //
+
+        .side-nav {
+            position: relative;
+            &.sub-menu-active > .title {
+                max-width: 40px;
+            }
+            > .title {
+                margin: 0px;
+                max-width: 100%;
+                text-align: left;
+                padding-left: 15px;
+                transition: all 0.3s ease;
+            }
+            > .main-menu > ul > li {
+                text-align: left;
+                position: relative;
+                padding-left: 15px;
+                &.active > .sub-menu {
+                    left: 49px;
+                }
+                &.active,
+                &.first-position {
+                    position: initial;
+
+
+
+                    //
+                    // Side nav states (Level 2)
+                    //
+
+                    > .sub-menu {
+                        top: 0px;
+                        z-index: 2;
+                        height: 100vh;
+                        position: absolute;
+                        background: map-get($colors, 2);
+                        &:after {
+                            display: none;
+                        }
+                        ul {
+                            padding-left: 0px;
+                            > li {
+                                display: block;
+                                list-style: none;
+                                position: relative;
+                                transition: all 0.3s ease;
+                                > a {
+                                    width: 201px;
+                                    display: block;
+                                    font-weight: normal;
+                                    padding: 10px 15px;
+                                    color: map-get($colors, 3);
+                                    text-decoration: none;
+                                    transition: all 0.3s ease;
+                                    > .icon {
+                                        margin-right: 5px;
+                                    }
+                                }
+                                &:hover {
+                                    > a {
+                                        color: $white;
+                                    }
+                                }
+                                > ul > li {
+                                    display: none;
+                                }
+                                > ul:after {
+                                    content: "\F142";
+                                    top: 12px;
+                                    right: 12px;
+                                    position: absolute;
+                                    color: map-get($colors, 3);
+                                    transition: all 0.3s ease;
+                                    font: normal normal normal 18px/1 "Material Design Icons";
+                                }
+
+
+
+                                //
+                                // Side nav states (Level 3)
+                                //
+
+                                &.active {
+                                    background: map-get($colors, 4);
+                                    > a {
+                                        color: $white;
+                                    }
+                                    > ul {
+                                        background: map-get($colors, 1);
+                                        &:after {
+                                            color: $white;
+                                            transform: rotate(90deg);
+                                        }
+                                        > li {
+                                            display: block;
+                                            list-style: none;
+                                            > a {
+                                                display: block;
+                                                font-weight: normal;
+                                                padding: 10px 15px;
+                                                color: map-get($colors, 3);
+                                                text-decoration: none;
+                                                transition: all 0.3s ease;
+                                                > .icon {
+                                                    color: $white;
+                                                    margin-right: 5px;
+                                                }
+                                            }
+                                            &:hover {
+                                                > a {
+                                                    color: $white;
+                                                }
+                                            }
+                                            &.active > a {
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                > .sub-menu {
+                    display: block;
+                    &:after {
+                        content: "\F142";
+                        top: 11px;
+                        right: 20px;
+                        position: absolute;
+                        color: map-get($colors, 3);
+                        font: normal normal normal 18px/1 "Material Design Icons";
+                    }
+                }
+                > .menu-item {
+                    position: relative;
+                    > .icon:after {
+                        opacity: 0;
+                    }
+                    > .title {
+                        top: 0px;
+                        left: 33px;
+                        display: block;
+                        max-width: 80%;
+                        overflow: hidden;
+                        position: absolute;
+                        font-weight: normal;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        margin: 3px auto 0px auto;
+                        color: map-get($colors, 3);
+                    }
+                    &:hover {
+                        > .title {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

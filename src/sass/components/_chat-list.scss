@@ -1,0 +1,22 @@
+
+//
+// Colors
+//
+
+$colors: (
+    1: #34454d
+);
+
+
+
+//
+// Chat list
+//
+
+.chat-list .chat {
+    cursor: pointer;
+    &.active {
+    	color: $white;
+        background: map-get($colors, 1);
+    }
+}

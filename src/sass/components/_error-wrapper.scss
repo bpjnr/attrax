@@ -1,0 +1,30 @@
+
+//
+// Error wrapper
+//
+
+.error-wrapper {
+	min-height: 100vh;
+	> .error-box {
+		width: 90%;
+
+		@media (min-width: map-get($grid-breakpoints, sm)) {
+			width: 380px;	
+		}
+		
+		.code-text {
+			font-size: 7rem;
+			line-height: 7rem;
+
+			@media (min-width: map-get($grid-breakpoints, sm)) {
+				font-size: 8rem;
+				line-height: 8rem;
+			}
+
+			@media (min-width: map-get($grid-breakpoints, md)) {
+				font-size: 10rem;
+				line-height: 10rem;
+			}
+		}
+	}
+}

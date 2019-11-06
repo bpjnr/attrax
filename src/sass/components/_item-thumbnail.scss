@@ -1,0 +1,40 @@
+
+//
+// Colors
+//
+
+$colors: (
+    1: rgba(28, 29, 42, 0.58), 2: #1c1d2a
+);
+
+
+
+//
+// Item thumbnail
+//
+
+.item-thumbnail {
+    cursor: pointer;
+    position: relative;
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+    }
+    > a {
+        top: 0px;
+        right: -15px;
+        bottom: 0px;
+        color: $white;
+        position: absolute;
+        transition: all 0.3s ease;
+        background: map-get($colors, 1);
+    }
+    &:hover {
+        > a {
+            right: -10px;
+            background: map-get($colors, 2);
+        }
+    }
+}

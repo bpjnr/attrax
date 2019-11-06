@@ -1,0 +1,29 @@
+
+//
+// Colors
+//
+
+$colors: (
+    1: #f9f9f9, 2: #3b7ae2
+);
+
+
+
+//
+// Mail list
+//
+
+.mail-list > .mail {
+	cursor: pointer;
+	background: map-get($colors, 1);
+	&.unread {
+		background: transparent;
+	}
+	&.selected {
+		color: $white;
+		background: map-get($colors, 2);
+		.user-name {
+			color: $white !important;
+		}
+	}
+}

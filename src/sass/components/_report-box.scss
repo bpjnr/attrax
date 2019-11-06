@@ -1,0 +1,52 @@
+
+//
+// Colors
+//
+
+$colors: (
+   1: #33468e
+);
+
+
+
+//
+// Report box
+//
+
+.report-box {
+	&.box-1 {
+		height: 495px;
+		.btn {
+			color: map-get($colors, 1);
+			border-color: map-get($colors, 1);
+		}
+	}
+	&.box-2 {
+		width: 100%;
+		height: (410px - 15px) / 2;
+
+		&.auto-height-xl {
+			@media (max-width: map-get($grid-breakpoints, md)) {
+				height: 250px;
+			}
+			@media (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, xl)) {
+		        height: auto;
+		    }
+		}
+
+		&.auto-height-lg {
+			@media (max-width: map-get($grid-breakpoints, md)) {
+				height: 250px;
+			}
+			@media (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, lg)) {
+		        height: auto;
+		    }
+		}
+	}
+	&.box-3 .progress {
+		border-radius: 0px;
+		.progress-bar {
+			background: map-get($colors, 1);
+		}
+	}
+}

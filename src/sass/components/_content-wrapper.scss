@@ -1,0 +1,345 @@
+
+//
+// Colors
+//
+
+$colors: (
+    1: #d9dfe2, 2: #e6e6e6, 3: #34454d, 4: #b9b9b9
+);
+
+
+
+//
+// Content wrapper
+//
+
+.content-wrapper {
+    margin-top: 55px;
+    margin-left: 65px;
+    &.width-top-nav {
+    	margin-top: 130px;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+    	margin-left: 0px;
+    	margin-top: 100px;
+    }
+
+
+
+    //
+	// Box layout
+	//
+
+	.box-layout {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0px -15px;
+		overflow: hidden;
+		position: relative;
+
+		@include media-breakpoint-up(xl) {
+	    	overflow-x: initial;
+	    }
+
+
+
+	    //
+		// Main layout
+		//
+
+		.main-layout {
+			@include make-col(12);
+			@include make-col-ready();
+			padding: 15px;
+
+			@include media-breakpoint-up(xl) {
+				min-height: 100vh;
+				@include make-col(9);
+				padding: 15px;
+				&.full-width {
+					@include make-col(12);
+				}
+			}
+		}
+		.side-layout {
+			width: 280px;
+			right: -500px;
+			position: absolute;
+			background: map-get($colors, 1);
+			&.active {
+				top: 0px;
+				right: 0px;
+				z-index: 4;
+				position: fixed;
+				transition: all 0.3s ease;
+			}
+			.slimscroll-wrapper {
+				padding: 15px;
+			}
+
+			@include media-breakpoint-up(xl) {
+				min-height: 100vh;
+				right: 0px;
+				display: block;
+				position: initial;
+				@include make-col(3);
+				@include make-col-ready();
+				padding: 15px;
+				&.active {
+					right: 0px;
+					z-index: 1;
+					position: initial;
+				}
+			}
+		}
+
+
+
+		//
+		// Mail layout
+		//
+
+		.mail-main-layout {
+			@include make-col(12);
+			@include make-col-ready();
+			padding: 15px;
+
+			@include media-breakpoint-up(lg) {
+				min-height: 100vh;
+				@include make-col(9);
+				@include make-col-ready();
+				padding: 15px;
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include make-col(10);
+				padding: 15px;
+			}
+		}
+		.mail-menu-layout {
+			width: 210px;
+			left: -500px;
+			position: absolute;
+			background: $white;
+			border-right: 1px solid map-get($colors, 2);
+			&.active {
+				top: 0px;
+				left: 0px;
+				z-index: 4;
+				position: fixed;
+				transition: all 0.3s ease;
+			}
+			.slimscroll-mail-wrapper {
+				padding: 15px;
+			}
+			.title {
+				margin-top: 20px;
+				font-weight: 400;
+			}
+			ul {
+				margin-top: 10px;
+				padding-left: 0px;
+				> li {
+					list-style: none;
+					margin-bottom: 10px;
+					&.active > a {
+						color: $blue;
+						font-weight: 400;
+					}
+					> a {
+					    display: flex;
+					    align-items: center;
+						> .icon {
+							font-size: 16px;
+							margin-right: 10px;
+						}
+						> .badge {
+							padding: 2px 3px;
+							margin-left: auto;
+						}
+					}
+				}
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include make-col(3);
+				@include make-col-ready();
+				min-height: 100vh;
+				right: 0px;
+				display: block;
+				position: initial;
+				padding: 15px;
+				&.active {
+					right: 0px;
+					z-index: 1;
+					position: initial;
+				}
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include make-col(2);
+			}
+		}
+
+
+
+		//
+		// File Manager layout
+		//
+
+		.file-manager-main-layout {
+			@include make-col(12);
+			@include make-col-ready();
+			padding: 15px;
+
+			@include media-breakpoint-up(lg) {
+				min-height: 100vh;
+				@include make-col(9);
+				@include make-col-ready();
+				padding: 15px;
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include make-col(10);
+				padding: 15px;
+			}
+		}
+		.file-manager-menu-layout {
+			width: 210px;
+			left: -500px;
+			position: absolute;
+			background: $white;
+			border-right: 1px solid map-get($colors, 2);
+			&.active {
+				top: 0px;
+				left: 0px;
+				z-index: 4;
+				position: fixed;
+				transition: all 0.3s ease;
+			}
+			.slimscroll-file-manager-wrapper {
+				padding: 15px;
+			}
+			.title {
+				margin-top: 20px;
+				font-weight: 400;
+			}
+			ul {
+				margin-top: 10px;
+				padding-left: 0px;
+				> li {
+					list-style: none;
+					margin-bottom: 10px;
+					&.active > a {
+						color: $blue;
+						font-weight: 400;
+					}
+					> a {
+					    display: flex;
+					    align-items: center;
+						> .icon {
+							font-size: 16px;
+							margin-right: 10px;
+						}
+						> .badge {
+							padding: 2px 3px;
+							margin-left: auto;
+						}
+					}
+				}
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include make-col(3);
+				@include make-col-ready();
+				min-height: 100vh;
+				right: 0px;
+				display: block;
+				position: initial;
+				padding: 15px;
+				&.active {
+					right: 0px;
+					z-index: 1;
+					position: initial;
+				}
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include make-col(2);
+			}
+		}
+
+
+
+		//
+		// Chat layout
+		//
+
+		.chat-main-layout {
+			@include make-col(12);
+			@include make-col-ready();
+			background: $white;
+			height: 100vh;
+			padding: 100px 0px 0px 0px;
+
+			@include media-breakpoint-up(lg) {
+				@include make-col(8);
+				@include make-col-ready();
+				padding: 55px 0px 0px 0px;
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include make-col(9);
+			}
+		}
+		.chat-menu-layout {
+			width: 280px;
+			height: 100vh;
+			left: -500px;
+			position: absolute;
+			&.active {
+				top: 0px;
+				left: 0px;
+				z-index: 4;
+				position: fixed;
+				transition: all 0.3s ease;
+			}
+			.chat-nav {
+				width: 100%;
+				> .nav {
+					justify-content: center;
+					> .nav-item {
+						color: map-get($colors, 4);
+						padding: 10px 20px;
+						&.active {
+							color: map-get($colors, 3);
+						}
+						.icon {
+							font-size: 16px;
+						}
+					}
+				}
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include make-col(4);
+				@include make-col-ready();
+				height: 100vh;
+				right: 0px;
+				display: block;
+				position: initial;
+				padding: 55px 0px 0px 0px;
+				&.active {
+					right: 0px;
+					z-index: 1;
+					position: initial;
+				}
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include make-col(3);
+			}
+		}
+	}
+}
