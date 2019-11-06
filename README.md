@@ -2,10 +2,10 @@
 <p>Attrax is a simple & clean HTML template for admin dashboard with pixel perfect design on every single page. The template are using SASS as main css preprocessor, Webpack module bundler, and latest Bootstrap 4 stable. It comes with many app templates and plugins to choose as a perfect solution for your projects.</p>
 
 <h4 id="item-description__features">Demo</h4>
-<a target="blank" href="http://panthera.left4code.com/">http://attrax.left4code.com/</a>
+<a target="blank" href="http://attrax.left4code.com/">http://attrax.left4code.com/</a>
 
 <h4 id="item-description__features">Documentation</h4>
-<a target="blank" href="http://panthera.left4code.com/docs">http://attrax.left4code.com/docs</a>
+<a target="blank" href="http://attrax.left4code.com/docs">http://attrax.left4code.com/docs</a>
 
 <h4>Features</h4>
 <ul>
